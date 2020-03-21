@@ -127,19 +127,19 @@
     if (isAuthenticated()) {
         showPageSection('authed-section');
 
-        const accessToken = getAccessTokenFromUrl();
+        var accessToken = getAccessTokenFromUrl();
         console.log('!!-!!-!! accessToken {200321213403}\n', accessToken); //del+
 
         // Create an instance of Dropbox with the access token and use it to
         // fetch and render the files in the users root directory.
-        const dbx = new Dropbox.Dropbox({accessToken: accessToken, fetch: fetch});
+        var dbx = new Dropbox.Dropbox({accessToken: accessToken, fetch: fetch});
         // ---
         dbx.filesDownload({path: '/tmp.txt'})
             .then(function (filesFileMetadata) {
                 console.log('filesFileMetadata', filesFileMetadata); // del+
-                const binary = filesFileMetadata.fileBlob;
+                var binary = filesFileMetadata.fileBlob;
                 console.log('!!-!!-!! binary {200321203743}\n', binary); //del+
-                const binary2 = filesFileMetadata.fileBinary;
+                var binary2 = filesFileMetadata.fileBinary;
                 console.log('!!-!!-!! binary2 {200321205037}\n', binary2); //del
 
                 // // здесь 'binary' обозначает кодировку 'latin-1'
