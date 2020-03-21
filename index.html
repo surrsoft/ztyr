@@ -138,6 +138,8 @@
                 var buff = new Buffer(binary, 'binary');
                 // получение в кодировке 'ucs2'
                 var stBuff = buff.toString('ucs2');
+                //
+                console.log('INFO*', stBuff);
             })
             .catch(function (filesDownloadError) {
                 console.log('ERR*', filesDownloadError);
