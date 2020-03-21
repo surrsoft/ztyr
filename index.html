@@ -95,17 +95,19 @@
             return ret;
         }
 
+        // Парсит URL и получает их него access token если он есть в urls hash
         // Parses the url and gets the access token if it is in the urls hash
         function getAccessTokenFromUrl() {
             return parseQueryString(window.location.hash).access_token;
         }
 
-        // If the user was just redirected from authenticating, the urls hash will
-        // contain the access token.
+        // Если пользователь просто перенаправлен с аутентификации, urls hash будет содержать access token
+        // If the user was just redirected from authenticating, the urls hash will contain the access token.
         function isAuthenticated() {
             return !!getAccessTokenFromUrl();
         }
 
+        // Наполнение элементами #files
         // Render a list of items to #files
         function renderItems(items) {
             var filesContainer = document.getElementById('files');
@@ -128,13 +130,16 @@
             // Create an instance of Dropbox with the access token and use it to
             // fetch and render the files in the users root directory.
             var dbx = new Dropbox.Dropbox({ accessToken: getAccessTokenFromUrl() });
-            dbx.filesListFolder({ path: '' })
-                .then(function (response) {
-                    renderItems(response.entries);
-                })
-                .catch(function (error) {
-                    console.error(error);
-                });
+            // ---
+
+            // ---
+            // dbx.filesListFolder({ path: '' })
+            //     .then(function (response) {
+            //         renderItems(response.entries);
+            //     })
+            //     .catch(function (error) {
+            //         console.error(error);
+            //     });
         } else {
             showPageSection('pre-auth-section');
 
