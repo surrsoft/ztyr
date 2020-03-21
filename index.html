@@ -132,7 +132,7 @@
 
         // Create an instance of Dropbox with the access token and use it to
         // fetch and render the files in the users root directory.
-        contst dbx = new Dropbox.Dropbox({accessToken: accessToken, fetch: fetch});
+        const dbx = new Dropbox.Dropbox({accessToken: accessToken, fetch: fetch});
         // ---
         dbx.filesDownload({path: '/tmp.txt'})
             .then(function (filesFileMetadata) {
