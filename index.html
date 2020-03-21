@@ -133,13 +133,14 @@
         // ---
         dbx.filesDownload({path: '/tmp.txt'})
             .then(function (filesFileMetadata) {
+                console.log('filesFileMetadata', filesFileMetadata); // del+
                 var binary = filesFileMetadata.fileBinary;
                 // здесь 'binary' обозначает кодировку 'latin-1'
                 var buff = new Buffer(binary, 'binary');
                 // получение в кодировке 'ucs2'
                 var stBuff = buff.toString('ucs2');
                 //
-                console.log('INFO*', stBuff);
+                console.log('INFO*', stBuff); // del+
             })
             .catch(function (filesDownloadError) {
                 console.log('ERR*', filesDownloadError);
