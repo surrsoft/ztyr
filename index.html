@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Dropbox JavaScript SDK</title>
+    <title>ztyr : rev.1</title>
     <link rel="stylesheet" href="/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@7/dist/polyfill.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
@@ -50,10 +50,12 @@
     </div>
 
     <script>
-        // --- app key
-        var CLIENT_ID = 'wcxza76xbwxv0aj';
+        // --- 
+        // app key
+        var ZTYR_CLIENT_ID = 'wcxza76xbwxv0aj';
+        var ZTYR_REDIRECT_URI = 'https://surrsoft.github.io/ztyr/';
 
-        // ---
+        // --- utils
         function parseQueryString(str) {
             var ret = Object.create(null);
 
@@ -136,8 +138,8 @@
             showPageSection('pre-auth-section');
 
             // Set the login anchors href using dbx.getAuthenticationUrl()
-            var dbx = new Dropbox.Dropbox({ clientId: CLIENT_ID });
-            var authUrl = dbx.getAuthenticationUrl('https://surrsoft.github.io/ztyr/');
+            var dbx = new Dropbox.Dropbox({ clientId: ZTYR_CLIENT_ID });
+            var authUrl = dbx.getAuthenticationUrl(ZTYR_REDIRECT_URI);
             document.getElementById('authlink').href = authUrl;
         }
     </script>
