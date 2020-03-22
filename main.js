@@ -39,7 +39,10 @@ function ztyrSaveHandler(pNewName) {
 }
 
 function ztyrFileUpload(fileName, fileContent) {
-  paemDropboxFileUploadReplace(fileName, fileContent);
+  paemDropboxFileUploadReplace(fileName, fileContent)
+    .then(function () {
+      alert('SUCCESS');
+    })
 }
 
 // --- dropbox
