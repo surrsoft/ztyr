@@ -126,7 +126,7 @@
 
   if (isAuthenticated()) {
     showPageSection('authed-section');
-    console.log('REV*', '9'); // del+
+    console.log('REV*', '10'); // del+
 
     var accessToken = getAccessTokenFromUrl();
     console.log('!!-!!-!! accessToken {200321213403}\n', accessToken); //del+
@@ -143,8 +143,11 @@
     })
       .then(function (response) {
         console.log('response', response);
-        const respText = response.text();
-        console.log('** respText', respText); // del+
+        const respPromise = response.text();
+        return respPromise;
+      })
+      .then(function (textResp) {
+        console.log('** textResp', textResp)
       })
       .catch(function (err) {
         console.log('ERR*', err);
