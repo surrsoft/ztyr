@@ -208,7 +208,7 @@
 <body>
 
 <script>
-  console.log('** rev', '18');
+  console.log('** rev', '19');
 
   // ---
   // app key
@@ -222,8 +222,10 @@
     },
     function () {
       console.log('INFO*', 'successfully authenticated'); // del+
-      dropbox('files/download', {path: '/tmp.txt'}, function (result) {
-        console.log('!!-!!-!! result {200322060146}\n', result); // del+
+      dropbox('files/download', {path: '/tmp.txt'}, {
+        onComplete: function (result) {
+          console.log('!!-!!-!! result {200322060448}\n', result); // del+
+        }
       })
     });
 </script>
