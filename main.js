@@ -5,7 +5,7 @@ function fnZtyrAlertAndThrowEx(msg) {
   throw new Error(msg);
 }
 
-function fnZtyrInfoShow(msg){
+function fnZtyrInfoShow(msg, isErr){
   $('#ztyrHtmlInfo').show();
   $('#ztyrHtmlInfo').html(msg);
   setTimeout(function () {

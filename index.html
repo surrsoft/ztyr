@@ -37,7 +37,7 @@
       console.log('!!-!!-!! dropbox auth: err {200322073417}\n', err); // del
     })
 </script>
-<p id="ztyrHtmlRev"></p>
+
 <p>Input or generate:</p>
 <form>
     <input id="txtInput" type="text" title="Input"/>
@@ -45,6 +45,7 @@
     <input type="button" value="save" onclick="ztyrSaveHandler($('#txtInput').val())"/>
     <p id="ztyrHtmlInfo"></p>
 </form>
+<p id="ztyrHtmlRev" style="font-size: small"></p>
 
 <script>
   $('#ztyrHtmlRev').html('rev. ' + ztyrProjectRev);
