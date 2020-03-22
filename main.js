@@ -1,5 +1,3 @@
-// --- consts
-var ZTYR_FILE_NAME = '/tmp.txt';
 
 // ---
 function generatorHandler(input) {
