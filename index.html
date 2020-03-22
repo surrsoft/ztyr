@@ -129,7 +129,7 @@
 
     var accessToken = getAccessTokenFromUrl();
     console.log('!!-!!-!! accessToken {200321213403}\n', accessToken); //del+
-    var filePath = '/tmp.txt';
+    var filePath = '{"path": "/tmp.txt"}';
 
     fetch('https://content.dropboxapi.com/2/files/download', {
       method: 'POST',
@@ -137,6 +137,7 @@
       headers: {
         'Authorization': accessToken,
         'Dropbox-API-Arg': filePath,
+        'Origin:': ZTYR_REDIRECT_URI,
       }
     })
       .then(function (response) {
