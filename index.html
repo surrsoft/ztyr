@@ -126,10 +126,11 @@
 
   if (isAuthenticated()) {
     showPageSection('authed-section');
+    console.log('REV*', '5'); // del+
 
     var accessToken = getAccessTokenFromUrl();
     console.log('!!-!!-!! accessToken {200321213403}\n', accessToken); //del+
-    var filePath = '{"path": "/tmp.txt"}';
+    var filePath = JSON.stringify({ path: '/tmp.txt' });
 
     fetch('https://content.dropboxapi.com/2/files/download', {
       method: 'POST',
