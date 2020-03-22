@@ -9,42 +9,17 @@
     <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
     <script src="https://unpkg.com/dropbox/dist/DropboxTeam-sdk.min.js"></script>
     <script src="dropbox-js.js"></script>
+    <script src="main.js"></script>
 </head>
 
 <body>
+<script> console.log('** rev', '29'); </script>
+<form>
+    <input id="txtInput" type="text"/>
+    <input type="button" value="generate" onclick="generatorHandler($('#txtInput'))"/>
+    <input type="button" value="save" onclick="saveHandler()"/>
+</form>
 
-<script>
-  console.log('** rev', '28');
-
-  // ---
-  // app key
-  var ZTYR_CLIENT_ID = 'wcxza76xbwxv0aj';
-  var ZTYR_REDIRECT_URI = 'https://surrsoft.github.io/ztyr/';
-  var ZTYR_FILE_NAME = '/tmp.txt';
-
-  // ---
-  dropbox.authenticate({
-      client_id: ZTYR_CLIENT_ID,
-      redirect_uri: ZTYR_REDIRECT_URI,
-    },
-    function () {
-      console.log('INFO*', 'successfully authenticated'); // del+
-      dropbox('files/download', { path: ZTYR_FILE_NAME }, {
-        onComplete: function (result, resp) {
-          console.log('!!-!!-!! -> onComplete() {200322061108}'); // del+
-          console.log('!!-!!-!! result {200322060448}\n', result); // del+
-          console.log('!!-!!-!! resp {200322063834}\n', resp); // del+
-          resp.text()
-            .then(function (text) {
-              console.log('!!-!!-!! text {200322064020}\n', text); // del
-            })
-            .catch(function (err) {
-              console.log('!!-!!-!! err {200322064035}\n', err); // del
-            })
-        },
-      });
-    });
-</script>
 </body>
 
 </html>
