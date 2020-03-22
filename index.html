@@ -18,7 +18,7 @@
 
 <body style="padding: 10px">
 <script>
-  var ztyrProjectRev = 69;
+  var ztyrProjectRev = 70;
   console.log(`INFO*: rev. ${ztyrProjectRev}`);
 
   // --- consts
@@ -43,7 +43,7 @@
     <input id="ztyrTxtInput" type="text" title="Input"/>
     <input type="button" value="generate" onclick="ztyrGeneratorHandler($('#ztyrTxtInput'))"/>
     <input id="ztyrHtmlSaveButton" type="button" value="save" onclick="ztyrSaveHandler($('#ztyrTxtInput').val())"/>
-    <p id="ztyrHtmlInfo"></p>
+    <p id="ztyrHtmlInfo" style="color:blue"></p>
 </form>
 <p id="ztyrHtmlRev" style="font-size: small"></p>
 

@@ -1,8 +1,11 @@
 // --- utils
 
-function fnZtyrInfoShow(msg, isErr){
+function fnZtyrInfoShow(msg, isErr) {
   fnZtyrSaveButtonShow(true);
   // ---
+  if (isErr) {
+    $('#ztyrHtmlInfo').attr('style', 'color:red');
+  }
   $('#ztyrHtmlInfo').show();
   $('#ztyrHtmlInfo').html(msg);
   setTimeout(function () {
@@ -11,7 +14,7 @@ function fnZtyrInfoShow(msg, isErr){
 }
 
 function fnZtyrAlertAndThrowEx(msg) {
-  fnZtyrInfoShow(msg);
+  fnZtyrInfoShow(msg, true);
   throw new Error(msg);
 }
 
