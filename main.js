@@ -47,24 +47,4 @@ function saveHandler() {
 //     console.log('dropboxOj', dropboxOj);
 // }
 
-
-// --- utils
-
-//генерирует английский [zint]-термин
-function generateEng() {
-  const stAlphabet1 = "abcdefghijkmnoprstuvwxyz";
-  const stAlphabet2 = "abcdefghijkmnoprtuvwxyz"; //без s
-  //---
-  const r_1 = randomInt(0, stAlphabet1.length - 1);
-  const r_2 = randomInt(0, stAlphabet1.length - 1);
-  const r_3 = randomInt(0, stAlphabet1.length - 1);
-  const r_4 = randomInt(0, stAlphabet2.length - 1);
-  return stAlphabet1.charAt(r_1) + stAlphabet1.charAt(r_2) + stAlphabet1.charAt(r_3) + stAlphabet2.charAt(r_4);
-}
-
-//генерирует рандомное целое число в диапазоне [min] [max]
-function randomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 // ---
