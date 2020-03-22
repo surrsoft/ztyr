@@ -1,7 +1,7 @@
 // --- utils
 
 function fnZtyrInfoShow(msg, isErr){
-  fnZtyrSaveButtonShow(false);
+  fnZtyrSaveButtonShow(true);
   // ---
   $('#ztyrHtmlInfo').show();
   $('#ztyrHtmlInfo').html(msg);
