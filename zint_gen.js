@@ -33,21 +33,14 @@ function zintRandomInt(min, max) {
 
 function zintVerifyName(name) {
   console.log('!!-!!-!! -> zintVerifyName() {200322085051}'); // del+
-  let ret = false;
   if (name && name.length === 4) {
-    name.split('').forEach((el, index) => {
-      console.log('!!-!!-!! el {200322084753}\n', el); // del+
+    return name.split('').every((el, index) => {
       if (index < 3) {
-        if (!zintAlphabet1.includes(el)) {
-          throw BreakException();
-        }
+        return zintAlphabet1.includes(el)
       } else {
-        if (!zintAlphabet2.includes(el)) {
-          throw BreakException();
-        }
+        return zintAlphabet2.includes(el)
       }
     });
-    ret = true;
   }
-  return ret;
+  return false;
 }
