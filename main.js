@@ -1,11 +1,8 @@
 // --- utils
-function fnZtyrAlertAndThrowEx(msg) {
-  // alert(msg); // del+
-  fnZtyrInfoShow(msg);
-  throw new Error(msg);
-}
 
 function fnZtyrInfoShow(msg, isErr){
+  fnZtyrSaveButtonShow(false);
+  // ---
   $('#ztyrHtmlInfo').show();
   $('#ztyrHtmlInfo').html(msg);
   setTimeout(function () {
@@ -13,7 +10,16 @@ function fnZtyrInfoShow(msg, isErr){
   }, 2000);
 }
 
+function fnZtyrAlertAndThrowEx(msg) {
+  fnZtyrInfoShow(msg);
+  throw new Error(msg);
+}
+
 // ---
+function fnZtyrSaveButtonShow(show) {
+  $('#ztyrHtmlSaveButton').attr('disabled', !show);
+}
+
 function ztyrGeneratorHandler(input) {
   const engName = zintGenerateEng();
   input.val(engName);
@@ -21,6 +27,9 @@ function ztyrGeneratorHandler(input) {
 
 function ztyrSaveHandler(pNewName) {
   console.log('===> saveHandler()');
+
+  // ---
+  fnZtyrSaveButtonShow(false);
 
   // ---
   if (!zintNameVerify(pNewName)) {
