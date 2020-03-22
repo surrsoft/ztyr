@@ -126,7 +126,7 @@
 
   if (isAuthenticated()) {
     showPageSection('authed-section');
-    console.log('REV*', '6'); // del+
+    console.log('REV*', '7'); // del+
 
     var accessToken = getAccessTokenFromUrl();
     console.log('!!-!!-!! accessToken {200321213403}\n', accessToken); //del+
@@ -134,11 +134,11 @@
 
     fetch('https://content.dropboxapi.com/2/files/download', {
       method: 'POST',
-      mode: 'cors',
+      // mode: 'cors',
       headers: {
         'Authorization': `Bearer ${accessToken}`,
         'Dropbox-API-Arg': filePath,
-        'Origin:': ZTYR_REDIRECT_URI,
+        // 'Origin:': ZTYR_REDIRECT_URI,
       }
     })
       .then(function (response) {
