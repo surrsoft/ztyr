@@ -37,11 +37,11 @@ function zintVerifyName(name) {
     name.split('').forEach((el, index) => {
       console.log('!!-!!-!! el {200322084753}\n', el); // del+
       if (index < 3) {
-        if (zintAlphabet1.indexOf(el) === -1) {
+        if (!zintAlphabet1.includes(el)) {
           return false;
         }
       } else {
-        if (zintAlphabet2.indexOf(el) === -1) {
+        if (!zintAlphabet2.includes(el)) {
           return false;
         }
       }
