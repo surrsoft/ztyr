@@ -32,7 +32,7 @@
 </header>
 
 <div class="container main">
-    <div><span>rev.2</span></div>
+    <div><span>rev.3</span></div>
     <div id="pre-auth-section" style="display:none;">
         <p>This example takes the user through Dropbox's API OAuth flow using
             <code>Dropbox.getAuthenticationUrl()</code> method [<a
@@ -132,10 +132,11 @@
     var filePath = '/tmp.txt';
 
     fetch('https://content.dropboxapi.com/2/files/download', {
+      method: 'POST',
+      mode: 'cors',
       headers: {
         'Authorization': accessToken,
         'Dropbox-API-Arg': filePath,
-        'mode': 'cors',
       }
     })
       .then(function (response) {
