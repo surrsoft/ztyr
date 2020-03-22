@@ -65,6 +65,7 @@ function paemDropboxFileUploadReplace(filePath, fileContent) {
     )
       .then(function (result) {
         console.log('!!-!!-!! ** upload: result {200322080248}\n', result); // del
+        resolve();
       })
       .catch(function (err) {
         console.log('!!-!!-!! ** upload: err {200322080329}\n', err); // del
