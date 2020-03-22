@@ -208,7 +208,7 @@
 <body>
 
 <script>
-  console.log('** rev', '22');
+  console.log('** rev', '23');
 
   // ---
   // app key
@@ -231,18 +231,24 @@
           console.log('!!-!!-!! -> onDownloadProgress() {200322061112}'); // del+
           console.log('!!-!!-!! result {200322061058}\n', result); //del+
           if (result.returnValue) {
-            result.target.response.text()
-              .then(function (textResponse) {
-                console.log('!!-!!-!! textResponse {200322061614}\n', textResponse); // del+
-              })
-              .catch(function (err) {
-                console.log('!!-!!-!! err {200322061626}\n', err); // del+
-              })
+            // result.target.response.text()
+            //   .then(function (textResponse) {
+            //     console.log('!!-!!-!! textResponse {200322061614}\n', textResponse); // del+
+            //   })
+            //   .catch(function (err) {
+            //     console.log('!!-!!-!! err {200322061626}\n', err); // del+
+            //   })
           } else {
             console.log('!!-!!-!! result.returnValue {200322061708}\n', result.returnValue); // del
           }
         }
       })
+        .then(function (result) {
+          console.log('!!-!!-!! result {200322062023}\n', result); // del
+        })
+        .catch(function (err) {
+          console.log('!!-!!-!! err {200322062033}\n', err); // del
+        })
     });
 </script>
 </body>
