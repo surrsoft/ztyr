@@ -38,6 +38,7 @@ function paemDropboxFileDownload(filePath) {
             resolve(text);
           })
           .catch(function (err) {
+            console.log('!!-!!-!! err {200322081619}\n', err); // del
             reject(err);
           })
       },
