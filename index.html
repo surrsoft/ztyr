@@ -16,11 +16,10 @@
     <script src="main.js"></script>
 </head>
 
-<body>
+<body style="padding: 10px">
 <script>
-  var ztyrProjectRev = 62;
+  var ztyrProjectRev = 63;
   console.log(`INFO*: rev. ${ztyrProjectRev}`);
-  $('#ztyrHtmlRev').html('rev. ' + ztyrProjectRev);
 
   // --- consts
   // app key
@@ -46,6 +45,9 @@
     <input type="button" value="save" onclick="ztyrSaveHandler($('#txtInput').val())"/>
 </form>
 
+<script>
+  $('#ztyrHtmlRev').html('rev. ' + ztyrProjectRev);
+</script>
 </body>
 
 </html>
