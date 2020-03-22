@@ -21,19 +21,17 @@ function ztyrSaveHandler(pNewName) {
   // ---
   paemDropboxFileDownload(ZTYR_FILE_NAME)
     .then(function (fileContent) {
-      console.log('!!-!!-!! fileContent {200322074518}\n', fileContent); // del+
-      // ---
+      // --- verify if name already exists
       if (zintNameContainsIs(fileContent, pNewName)) {
-        fnZtyrAlertAndThrowEx(`INFO*: name already exists; [${pNewName}]`)
+        fnZtyrAlertAndThrowEx(`PROHIBITED: name already exists; [${pNewName}]`);
       }
-      // ---
+      // --- new file content
       const newValue = fileContent + pNewName + '\n';
-      console.log('!!-!!-!! newValue {200322074554}\n', newValue); // del
       // --- update file
       ztyrFileUpload(ZTYR_FILE_NAME, newValue);
     })
     .catch(function (err) {
-      console.log('!!-!!-!! dropbox download: err {200322081417}\n', err); // del
+      console.log('!!-!!-!! dropbox download: err {200322081417}\n', err);
     })
 
 }
