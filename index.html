@@ -18,7 +18,9 @@
 
 <body>
 <script>
-  console.log('INFO*: rev. 60');
+  var ztyrProjectRev = 62;
+  console.log(`INFO*: rev. ${ztyrProjectRev}`);
+  $('#ztyrHtmlRev').html('rev. ' + ztyrProjectRev);
 
   // --- consts
   // app key
@@ -36,6 +38,8 @@
       console.log('!!-!!-!! dropbox auth: err {200322073417}\n', err); // del
     })
 </script>
+<p id="ztyrHtmlRev"></p>
+<p>Input or generate:</p>
 <form>
     <input id="txtInput" type="text" title="Input"/>
     <input type="button" value="generate" onclick="ztyrGeneratorHandler($('#txtInput'))"/>
