@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
     <script src="https://unpkg.com/dropbox/dist/DropboxTeam-sdk.min.js"></script>
     <script src="dropbox-js.js"></script>
+    <script src="paem-dropbox-js.js"></script>
     <script src="zint_gen.js"></script>
     <script src="main.js"></script>
 </head>
@@ -23,13 +24,13 @@
   var ZTYR_REDIRECT_URI = 'https://surrsoft.github.io/ztyr/';
 
   // --- dropbox auth
-  dropbox.authenticate({
-      client_id: ZTYR_CLIENT_ID,
-      redirect_uri: ZTYR_REDIRECT_URI,
-    },
-    function () {
-      console.log('INFO*', 'successfully authenticated'); // del+
-    });
+  paemAuth(ZTYR_CLIENT_ID, ZTYR_REDIRECT_URI)
+    .then(function () {
+      console.log('INFO*', 'successfully Dropbox authenticated');
+    })
+    .catch(function (err) {
+      console.log('!!-!!-!! dropbox auth: err {200322073417}\n', err); // del
+    })
 </script>
 <form>
     <input id="txtInput" type="text" title="Input"/>
