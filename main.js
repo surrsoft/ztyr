@@ -5,17 +5,18 @@ function generatorHandler(input) {
   input.val(engName);
 }
 
-function saveHandler() {
+function saveHandler(pValue) {
   console.log('===> saveHandler()');
 
   // ---
   paemDropboxFileDownload(ZTYR_FILE_NAME)
-    .then(function (textResp) {
-      console.log('!!-!!-!! textResp {200322074518}\n', textResp); // del+
+    .then(function (fileContent) {
+      console.log('!!-!!-!! fileContent {200322074518}\n', fileContent); // del+
       // ---
-      const t2 = textResp + '+';
-      console.log('!!-!!-!! t2 {200322074554}\n', t2); // del
-      ztyrFileUpload(ZTYR_FILE_NAME, t2);
+      const newValue = fileContent + '\n'+pValue;
+      console.log('!!-!!-!! newValue {200322074554}\n', newValue); // del
+      // --- update file
+      ztyrFileUpload(ZTYR_FILE_NAME, newValue);
     })
     .catch(function (err) {
       console.log('!!-!!-!! dropbox download: err {200322081417}\n', err); // del
