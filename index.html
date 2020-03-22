@@ -95,6 +95,29 @@
     return ret;
   }
 
+  // --- dropbox
+  function dropboxFileContentGet(filePath) {
+    return fetch('https://content.dropboxapi.com/2/files/download', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Dropbox-API-Arg': JSON.stringify({ path: filePath }),
+      }
+    })
+      .then(function (response) {
+        console.log('response', response);
+        return response.text();
+      })
+      .then(function (textResp) {
+        console.log('** textResp\n', textResp)
+        return textResp;
+      })
+      .catch(function (err) {
+        console.log('ERR*', err);
+      });
+  }
+
+  // ---
   // Парсит URL и получает их него access token если он есть в urls hash
   // Parses the url and gets the access token if it is in the urls hash
   function getAccessTokenFromUrl() {
@@ -126,32 +149,16 @@
 
   if (isAuthenticated()) {
     showPageSection('authed-section');
-    console.log('REV*', '10'); // del+
+    console.log('REV*', '12'); // del+
 
     var accessToken = getAccessTokenFromUrl();
     console.log('!!-!!-!! accessToken {200321213403}\n', accessToken); //del+
-    var filePath = JSON.stringify({ path: '/tmp.txt' });
+    var filePath = '/tmp.txt';
 
-    fetch('https://content.dropboxapi.com/2/files/download', {
-      method: 'POST',
-      // mode: 'cors',
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-        'Dropbox-API-Arg': filePath,
-        // 'Origin:': ZTYR_REDIRECT_URI,
-      }
-    })
-      .then(function (response) {
-        console.log('response', response);
-        const respPromise = response.text();
-        return respPromise;
-      })
+    dropboxFileContentGet(filePath)
       .then(function (textResp) {
-        console.log('** textResp', textResp)
+        console.log('** textResp (2) \n', textResp)
       })
-      .catch(function (err) {
-        console.log('ERR*', err);
-      });
 
     // Create an instance of Dropbox with the access token and use it to
     // fetch and render the files in the users root directory.
