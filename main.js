@@ -1,19 +1,24 @@
-
 // ---
 function generatorHandler(input) {
   const engName = zintGenerateEng();
   input.val(engName);
 }
 
-function saveHandler(pValue) {
+function saveHandler(pNewName) {
   console.log('===> saveHandler()');
+
+  if (!zintVerifyName(pNewName)) {
+    const ms = `ERR*: invalid name; [${pNewName}]`;
+    alert(ms);
+    throw new Error(ms);
+  }
 
   // ---
   paemDropboxFileDownload(ZTYR_FILE_NAME)
     .then(function (fileContent) {
       console.log('!!-!!-!! fileContent {200322074518}\n', fileContent); // del+
       // ---
-      const newValue = fileContent + '\n'+pValue;
+      const newValue = fileContent + pNewName + '\n';
       console.log('!!-!!-!! newValue {200322074554}\n', newValue); // del
       // --- update file
       ztyrFileUpload(ZTYR_FILE_NAME, newValue);

@@ -31,6 +31,13 @@ function zintRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function zintVerifyName(name) {
+  if (name && name.length === 4) {
+    return true;
+  }
+  return false;
+}
+
 //---
 exports.generateEng = generateEng;
 exports.generateRu = generateRu;
