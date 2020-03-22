@@ -1,7 +1,16 @@
 // --- utils
 function fnZtyrAlertAndThrowEx(msg) {
-  alert(msg);
+  // alert(msg); // del+
+  fnZtyrInfoShow(msg);
   throw new Error(msg);
+}
+
+function fnZtyrInfoShow(msg){
+  $('#ztyrHtmlInfo').show();
+  $('#ztyrHtmlInfo').html(msg);
+  setTimeout(function () {
+    $('#ztyrHtmlInfo').hide();
+  }, 2000);
 }
 
 // ---
