@@ -17,6 +17,9 @@ function saveHandler() {
       console.log('!!-!!-!! t2 {200322074554}\n', t2); // del
       ztyrFileUpload(ZTYR_FILE_NAME, t2);
     })
+    .catch(function (err) {
+      console.log('!!-!!-!! dropbox download: err {200322081417}\n', err); // del
+    })
 
 }
 
