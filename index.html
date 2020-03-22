@@ -4,6 +4,7 @@
 <head>
     <title>ztyr</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@7/dist/polyfill.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
     <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
@@ -13,9 +14,9 @@
 </head>
 
 <body>
-<script> console.log('** rev', '29'); </script>
+<script> console.log('** rev', '30'); </script>
 <form>
-    <input id="txtInput" type="text"/>
+    <input id="txtInput" type="text" title="Input"/>
     <input type="button" value="generate" onclick="generatorHandler($('#txtInput'))"/>
     <input type="button" value="save" onclick="saveHandler()"/>
 </form>
