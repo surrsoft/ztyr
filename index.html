@@ -18,7 +18,7 @@
 
 <body style="padding: 10px">
 <script>
-  var ztyrProjectRev = 66;
+  var ztyrProjectRev = 67;
   console.log(`INFO*: rev. ${ztyrProjectRev}`);
 
   // --- consts
@@ -31,7 +31,7 @@
   // --- dropbox auth
   paemDropboxAuth(ZTYR_CLIENT_ID, ZTYR_REDIRECT_URI)
     .then(function () {
-      console.log('INFO*', 'successfully Dropbox authenticated');
+      console.log('INFO*: successfully Dropbox authenticated');
     })
     .catch(function (err) {
       console.log('!!-!!-!! dropbox auth: err {200322073417}\n', err); // del
