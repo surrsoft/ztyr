@@ -136,7 +136,7 @@
       method: 'POST',
       mode: 'cors',
       headers: {
-        'Authorization': accessToken,
+        'Authorization': `Bearer ${accessToken}`,
         'Dropbox-API-Arg': filePath,
         'Origin:': ZTYR_REDIRECT_URI,
       }
