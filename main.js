@@ -3,7 +3,7 @@ var ZTYR_FILE_NAME = '/tmp.txt';
 
 // ---
 function generatorHandler(input) {
-  const engName = generateEng();
+  const engName = zintGenerateEng();
   input.val(engName);
 }
 
