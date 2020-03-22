@@ -135,6 +135,7 @@
       headers: {
         'Authorization': accessToken,
         'Dropbox-API-Arg': filePath,
+        'mode': 'cors',
       }
     })
       .then(function (response) {
