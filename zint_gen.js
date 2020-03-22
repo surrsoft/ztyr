@@ -34,7 +34,7 @@ function zintRandomInt(min, max) {
 function zintVerifyName(name) {
   console.log('!!-!!-!! -> zintVerifyName() {200322085051}'); // del+
   if (name && name.length === 4) {
-    name.forEach((el, index) => {
+    name.split('').forEach((el, index) => {
       console.log('!!-!!-!! el {200322084753}\n', el); // del+
       if (index < 3) {
         if (zintAlphabet1.indexOf(el) === -1) {
