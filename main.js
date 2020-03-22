@@ -1,22 +1,31 @@
+// --- utils
+function fnZtyrAlertAndThrowEx(msg) {
+  alert(msg);
+  throw new Error(msg);
+}
+
 // ---
-function generatorHandler(input) {
+function ztyrGeneratorHandler(input) {
   const engName = zintGenerateEng();
   input.val(engName);
 }
 
-function saveHandler(pNewName) {
+function ztyrSaveHandler(pNewName) {
   console.log('===> saveHandler()');
 
-  if (!zintVerifyName(pNewName)) {
-    const ms = `ERR*: invalid name; [${pNewName}]`;
-    alert(ms);
-    throw new Error(ms);
+  // ---
+  if (!zintNameVerify(pNewName)) {
+    fnZtyrAlertAndThrowEx(`ERR*: invalid name; [${pNewName}]`);
   }
 
   // ---
   paemDropboxFileDownload(ZTYR_FILE_NAME)
     .then(function (fileContent) {
       console.log('!!-!!-!! fileContent {200322074518}\n', fileContent); // del+
+      // ---
+      if (zintNameContainsIs(fileContent, pNewName)) {
+        fnZtyrAlertAndThrowEx(`INFO*: name already exists; [${pNewName}]`)
+      }
       // ---
       const newValue = fileContent + pNewName + '\n';
       console.log('!!-!!-!! newValue {200322074554}\n', newValue); // del

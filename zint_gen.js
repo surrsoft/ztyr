@@ -31,7 +31,7 @@ function zintRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function zintVerifyName(name) {
+function zintNameVerify(name) {
   console.log('!!-!!-!! -> zintVerifyName() {200322085051}'); // del+
   if (name && name.length === 4) {
     return name.split('').every((el, index) => {
@@ -41,6 +41,18 @@ function zintVerifyName(name) {
         return zintAlphabet2.includes(el)
       }
     });
+  }
+  return false;
+}
+
+/**
+ *
+ * @param stNames
+ * @param name
+ */
+function zintNameContainsIs(stNames, name) {
+  if (stNames && stNames.length > 0 && name && name.length > 0) {
+    return stNames.split('\n').every(el => el !== name);
   }
   return false;
 }

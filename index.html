@@ -18,7 +18,7 @@
 
 <body>
 <script>
-  console.log('INFO*: rev. 54');
+  console.log('INFO*: rev. 55');
   // --- consts
   // app key
   var ZTYR_CLIENT_ID = 'wcxza76xbwxv0aj';
@@ -37,8 +37,8 @@
 </script>
 <form>
     <input id="txtInput" type="text" title="Input"/>
-    <input type="button" value="generate" onclick="generatorHandler($('#txtInput'))"/>
-    <input type="button" value="save" onclick="saveHandler($('#txtInput').val())"/>
+    <input type="button" value="generate" onclick="ztyrGeneratorHandler($('#txtInput'))"/>
+    <input type="button" value="save" onclick="ztyrSaveHandler($('#txtInput').val())"/>
 </form>
 
 </body>
