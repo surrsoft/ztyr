@@ -1,4 +1,5 @@
 /*
+DESCRIPTION: wrapper upon https://github.com/JamesMaroney/dropbox-js
 DEPENDENCIES:
 - https://github.com/JamesMaroney/dropbox-js
  */
@@ -7,7 +8,7 @@ DEPENDENCIES:
  *
  * @param pClientId -- api key, example 'wcxza76xbwxv0aj'
  * @param pRedirectUri -- example 'https://yyy.github.io/xxx/'
- * @returns {Promise<any>}
+ * @returns {Promise<>}
  */
 function paemDropboxAuth(pClientId, pRedirectUri) {
   return new Promise((resolve, reject) => {
@@ -32,19 +33,40 @@ function paemDropboxFileDownload(filePath) {
   return new Promise((resolve, reject) => {
     dropbox('files/download', { path: filePath }, {
       onComplete: function (result, resp) {
-        console.log('!!-!!-!! -> onComplete() {200322061108}'); // del+
-        console.log('!!-!!-!! result {200322060448}\n', result); // del+
-        console.log('!!-!!-!! resp {200322063834}\n', resp); // del+
         resp.text()
           .then(function (text) {
-            console.log('!!-!!-!! text {200322064020}\n', text); // del
             resolve(text);
           })
           .catch(function (err) {
-            console.log('!!-!!-!! err {200322064035}\n', err); // del
             reject(err);
           })
       },
     });
+  });
+}
+
+/**
+ * Returns content of file (1)
+ *
+ * @param filePath {String} - example '/file.txt'
+ * @param fileContent {String} -
+ * @returns {Promise<String>}
+ */
+function paemDropboxFileUploadReplace(filePath, fileContent) {
+  return new Promise((resolve, reject) => {
+    dropbox(
+      'files/upload',
+      {
+        path: filePath,
+        mode: { '.tag': 'overwrite' }
+      },
+      fileContent
+    )
+      .then(function (result) {
+        console.log('!!-!!-!! ** upload: result {200322080248}\n', result); // del
+      })
+      .catch(function (err) {
+        console.log('!!-!!-!! ** upload: err {200322080329}\n', err); // del
+      });
   });
 }
