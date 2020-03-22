@@ -52,7 +52,7 @@ function zintNameVerify(name) {
  */
 function zintNameContainsIs(stNames, name) {
   if (stNames && stNames.length > 0 && name && name.length > 0) {
-    return stNames.split('\n').every(el => el !== name);
+    return stNames.split('\n').some(el => el === name);
   }
   return false;
 }
