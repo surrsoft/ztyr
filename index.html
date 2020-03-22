@@ -208,7 +208,7 @@
 <body>
 
 <script>
-  console.log('** rev', '25');
+  console.log('** rev', '26');
 
   // ---
   // app key
@@ -227,6 +227,13 @@
           console.log('!!-!!-!! -> onComplete() {200322061108}'); // del+
           console.log('!!-!!-!! result {200322060448}\n', result); // del+
           console.log('!!-!!-!! resp {200322063834}\n', resp); // del+
+          resp.text()
+            .then(function (text) {
+              console.log('!!-!!-!! text {200322064020}\n', text); // del
+            })
+            .catch(function (err) {
+              console.log('!!-!!-!! err {200322064035}\n', err); // del
+            })
         },
         onDownloadProgress: function (result) {
           console.log('!!-!!-!! -> onDownloadProgress() {200322061112}'); // del+
