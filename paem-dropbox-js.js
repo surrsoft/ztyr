@@ -1,7 +1,9 @@
 /*
 DESCRIPTION: wrapper upon https://github.com/JamesMaroney/dropbox-js
 DEPENDENCIES:
-- https://github.com/JamesMaroney/dropbox-js
+- https://github.com/JamesMaroney/dropbox-js - see dropbox-js.js this
+OTHER:
+- variable 'dropbox' is from JamesMaroney library
  */
 
 /**
