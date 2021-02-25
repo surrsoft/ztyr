@@ -23,8 +23,14 @@ function fnZtyrSaveButtonShow(show) {
   $('#ztyrHtmlSaveButton').attr('disabled', !show);
 }
 
-function ztyrGeneratorHandler(input) {
-  const engName = zintGenerateEng();
+function ztyrGeneratorHandler(input, inputSmootLettersCheckbox) {
+  const isSmoothLettersMode = inputSmootLettersCheckbox.get(0).checked;
+  let engName;
+  if (!isSmoothLettersMode) {
+    engName = zintGenerateEng();
+  } else {
+    engName = zintGenerateEng_SL();
+  }
   input.val(engName);
 }
 

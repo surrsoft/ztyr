@@ -3,7 +3,10 @@
  */
 
 const zintAlphabet1 = "abcdefghijkmnoprstuvwxyz";
+// smoot letters
+const zintAlphabet1_sl = "acemnorsuvwxz";
 const zintAlphabet2 = "abcdefghijkmnoprtuvwxyz"; //без s
+const zintAlphabet2_sl = "acemnoruvwxz"; //без s
 
 //генерирует английский [zint]-термин
 function zintGenerateEng() {
@@ -12,6 +15,15 @@ function zintGenerateEng() {
   const r_3 = zintRandomInt(0, zintAlphabet1.length - 1);
   const r_4 = zintRandomInt(0, zintAlphabet2.length - 1);
   return zintAlphabet1.charAt(r_1) + zintAlphabet1.charAt(r_2) + zintAlphabet1.charAt(r_3) + zintAlphabet2.charAt(r_4);
+}
+
+//генерирует английский [zint]-термин в "smooth-letter" режиме
+function zintGenerateEng_SL() {
+  const r_1 = zintRandomInt(0, zintAlphabet1_sl.length - 1);
+  const r_2 = zintRandomInt(0, zintAlphabet1_sl.length - 1);
+  const r_3 = zintRandomInt(0, zintAlphabet1_sl.length - 1);
+  const r_4 = zintRandomInt(0, zintAlphabet2_sl.length - 1);
+  return zintAlphabet1_sl.charAt(r_1) + zintAlphabet1_sl.charAt(r_2) + zintAlphabet1_sl.charAt(r_3) + zintAlphabet2_sl.charAt(r_4);
 }
 
 //генерирует кирилический [zint]-термин
